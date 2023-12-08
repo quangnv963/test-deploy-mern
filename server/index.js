@@ -21,7 +21,7 @@ mongoose.connect('mongodb+srv://test:cuong123456@companycv.rr6odbl.mongodb.net/c
 
 
 app.get("/", (req, res) => {
-    res.json("Tao là Quang đây");
+    res.json("Tao là Quang đây, tao test backend");
 })
 
 app.use("/api", productRouter);
