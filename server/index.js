@@ -1,13 +1,17 @@
+import userRouter from "./routes/user";
+import newRouter from "./routes/new";
+import productRouter from "./routes/product";
+
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
-const RegisterModel = require('./models/Register')
+
 
 const app = express()
 app.use(cors(
     {
         origin: ["https://deploy-mern-frontend.vercel.app"],
-        methods: ["POST", "GET"],
+        methods: ["POST", "GET", "PUT", "DELETE"],
         credentials: true
     }
 ));
@@ -19,20 +23,10 @@ mongoose.connect('mongodb+srv://test:cuong123456@companycv.rr6odbl.mongodb.net/c
 app.get("/", (req, res) => {
     res.json("Tao là Quang đây");
 })
-app.post('/register', (req, res) => {
-    const {name, email, password} = req.body;
-    RegisterModel.findOne({email: email})
-    .then(user => {
-        if(user) {
-            res.json("Already have an account")
-        } else {
-            RegisterModel.create({name: name, email: email, password: password})
-            .then(result => res.json(result))
-            .catch(err => res.json(err))
-        }
-    }).catch(err => res.json(err))
-})
 
+app.use("/api", productRouter);
+app.use("/api", newRouter);
+app.use("/api", userRouter);
 
 app.listen(3001, () => {
     console.log("Server is Running")
