@@ -8,13 +8,7 @@ const cors = require('cors')
 
 
 const app = express()
-app.use(cors(
-    {
-        origin: ["https://company-react-ten.vercel.app/"],
-        methods: ["POST", "GET", "PUT", "DELETE"],
-        credentials: true
-    }
-));
+app.use(cors());
 app.use(express.json())
 
 mongoose.connect('mongodb+srv://test:cuong123456@companycv.rr6odbl.mongodb.net/companycv');
