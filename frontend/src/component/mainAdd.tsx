@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from 'react-router-dom';
-import {useEffect, useState} from "react"
+import { useState} from "react"
 import React from 'react'
 import dblogo from '../assets/dblogo.png'
 import ava from '../assets/avahacker.png'
@@ -9,7 +9,6 @@ import prologo from '../assets/logoproduct.png'
 import searchlogo from '../assets/icon_search.svg'
 import { IProducts, INews} from '../types';
 import { Link } from 'react-router-dom';
-import { delP } from '../api/products';
 import { delN } from '../api/news';
 
 const MainAdd = ({data, dataN}:{ data:IProducts[], dataN:INews[]}) => {
