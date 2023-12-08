@@ -10,7 +10,7 @@ const cors = require('cors')
 const app = express()
 app.use(cors(
     {
-        origin: ["https://deploy-mern-frontend.vercel.app"],
+        origin: ["https://company-react-ten.vercel.app/"],
         methods: ["POST", "GET", "PUT", "DELETE"],
         credentials: true
     }
