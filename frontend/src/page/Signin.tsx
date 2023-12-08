@@ -1,8 +1,6 @@
 import { SubmitHandler, useForm } from "react-hook-form"
 import { useNavigate } from 'react-router-dom';
 import { IUsers } from "../types"
-import React from 'react'
-
 
 const Signin = ({dataU}:{dataU: IUsers[]}) =>{
     const navigate = useNavigate();

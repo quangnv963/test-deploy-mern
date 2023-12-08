@@ -1,8 +1,6 @@
 import Header from '../component/Header';
 import Slider from '../component/slider';
 import Footer from '../component/footer';
-import React from 'react'
-
 const AboutUs = () => {
   const observer = new IntersectionObserver((entries) =>{
     entries.forEach((entry) => {

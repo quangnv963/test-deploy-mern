@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import { getAll } from './api/products'
@@ -33,8 +32,8 @@ function App(){
         <Routes>
           <Route path='/' element={<Home data={products} dataN ={news}/>}/>
           <Route path='/about' element={<AboutUs/>}/>
-          <Route path='/admin' element={<HomeAdd data={products} dataN={news}/>}/>
-          <Route path='/admin/datamanager' element={<HomeAdd data={products} dataN={news}/>}/>
+          <Route path='/admin' element={<HomeAdd data={products}/>}/>
+          <Route path='/admin/product' element={<HomeAdd data={products} />}/>
           <Route path='/signin' element={<Signin dataU={users}/>}/>
         </Routes>
       </BrowserRouter>

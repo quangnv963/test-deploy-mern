@@ -1,6 +1,5 @@
 import  { useState, useEffect } from 'react';
 import { RxDotFilled } from 'react-icons/rx';
-import React from 'react'
 
 function Slider() {
   const slides = [

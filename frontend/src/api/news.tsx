@@ -9,12 +9,12 @@ export const getAllNew = () =>{
 export const getOne = (id:number) =>{
     return instance.get(`/news/${id}`)
 }
-export const AddN = (obj:object | INews) =>{
+export const AddP = (obj:object | INews) =>{
     return instance.post(`/news`, obj)
 }
-export const UpN = (id:number, obj:object) =>{
+export const UpP = (id:number, obj:object) =>{
     return instance.put(`/news/${id}`, obj)
 }
-export const delN = (id:number) =>{
+export const delP = (id:number) =>{
     return instance.delete(`/news/${id}`)
 }

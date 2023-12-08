@@ -4,7 +4,6 @@ import { IProducts } from '../types';
 import { INews } from '../types';
 import Content from '../component/contentPage';
 import Footer from '../component/footer';
-import React from 'react'
 const Home = ({data, dataN}:{ data:IProducts[], dataN:INews[]}) => {
   return (
     <div>

@@ -1,19 +1,15 @@
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useState} from "react"
-import React from 'react'
+import {useState} from "react"
 import dblogo from '../assets/dblogo.png'
 import ava from '../assets/avahacker.png'
 import down from '../assets/downlogo.png'
 import logo from '../assets/logo.jpg'
 import prologo from '../assets/logoproduct.png'
 import searchlogo from '../assets/icon_search.svg'
-import { IProducts, INews} from '../types';
-import { Link } from 'react-router-dom';
-import { delN } from '../api/news';
+import { IProducts, } from '../types';
 
-const MainAdd = ({data, dataN}:{ data:IProducts[], dataN:INews[]}) => {
+const MainAdd = ({data}:{ data:IProducts[]}) => {
   const [btndata, Setbtndata ] = useState(false)
-  const [btnnew, Setbtnnew] = useState(false)
   const navigate = useNavigate();
   const location = useLocation();
   const cookies = document.cookie.split(';')
@@ -34,11 +30,11 @@ const MainAdd = ({data, dataN}:{ data:IProducts[], dataN:INews[]}) => {
       <p className='text-white font-sans font-semibold'>Dashboard</p></div>
       main = <div className='w-[90%] mx-auto'><p className='font-sans text-white text-[30px]'>Data analytics and statistics are coming soon !</p></div>
     }
-    else if(btnnew == false){
+    if(path == "/admin/product"){
       content = <div className="flex  items-center"><img className='w-[80px] px-2' src={prologo} alt="" />
       <p className='text-white font-sans font-semibold'>Product</p></div>
     }
-    else if(btnnew == true){
+    if(path == "/admin/new"){
       content = <div className="flex  items-center"><img className='w-[80px] px-2' src={dblogo} alt="" />
       <p className='text-white font-sans font-semibold'>New</p></div>
     }
@@ -46,9 +42,6 @@ const MainAdd = ({data, dataN}:{ data:IProducts[], dataN:INews[]}) => {
   //   document.cookie = 'name=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;';
   //   console.log('đẫ đăng xuất ')
   // };
-  const remove = (id:number) => {
-    delN(id).then(()=> window.location.reload())
-  }
 
   return (
     <div className='flex 2xl:mx-[300px]'>
@@ -59,13 +52,13 @@ const MainAdd = ({data, dataN}:{ data:IProducts[], dataN:INews[]}) => {
           <div className='text-[#939393] mx-4'>Menu</div>
           <div>
             <ul className='text-[#939393]'>
-              <li className={path === "/admin" ? 'text-white bg-[#5352ec] rounded-[10px] cursor-pointer m-4 px-4 py-2':'m-4 px-4 py-2 cursor-pointer'} onClick={()=>{Setbtndata(false)}}><Link  to="/admin">Dashboard</Link></li>
-              <li className={path === "/admin/datamanager"? 'text-white bg-[#5352ec] rounded-[10px] cursor-pointer m-4 px-4 py-2':'m-4 px-4 py-2 cursor-pointer'} onClick={()=>{Setbtndata(!btndata)}}>
-                <Link to='/admin/datamanager'>Data Managerment</Link>
+              <li className={path === "/admin" ? 'text-white bg-[#5352ec] rounded-[10px] cursor-pointer m-4 px-4 py-2':'m-4 px-4 py-2 cursor-pointer'}><a  href="/admin">Dashboard</a></li>
+              <li className={path === "/admin/product" || path === "/admin/new" ? 'text-white bg-[#5352ec] rounded-[10px] cursor-pointer m-4 px-4 py-2':'m-4 px-4 py-2 cursor-pointer'} onClick={()=>{Setbtndata(!btndata)}}>
+                <p>Data Managerment</p>
               </li>
               <ul className={btndata ? 'block fade' : 'hidden'}>
-                <li className={btnnew == false ? 'text-white bg-[#5352ec] rounded-[10px] cursor-pointer m-4 px-4 py-2':'m-4 px-4 py-2 cursor-pointer'}><p onClick={() => Setbtnnew(false)}>Product</p></li>
-                <li className={btnnew == true ? 'text-white bg-[#5352ec] rounded-[10px] cursor-pointer m-4 px-4 py-2':'m-4 px-4 py-2 cursor-pointer'}><p onClick={() => Setbtnnew(true)}>New</p></li>
+                <li className={path === "/admin/product" ? 'text-white bg-[#5352ec] rounded-[10px] cursor-pointer m-4 px-4 py-2':'m-4 px-4 py-2 cursor-pointer'}><a href="/admin/product">Product</a></li>
+                <li className={path === "/admin/new" ? 'text-white bg-[#5352ec] rounded-[10px] cursor-pointer m-4 px-4 py-2':'m-4 px-4 py-2 cursor-pointer'}><a href="">News</a></li>
               </ul>
               
             </ul>
@@ -90,69 +83,36 @@ const MainAdd = ({data, dataN}:{ data:IProducts[], dataN:INews[]}) => {
           </div>            
           {main}
           <div>
-            <div className='m-10 text-center font-sans text-[40px] text-white font-semibold'><h2>{btnnew ? "New" : "Product"} Managerment</h2></div>
+            <div className='m-10 text-center font-sans text-[40px] text-white font-semibold'><h2>Product Managerment</h2></div>
             <div className='mx-5'>
               <div className='flex m-5'>
                 <input className='w-[20%]' name='search' type="text" placeholder='Search for...'/>
                 <label htmlFor="search"><img src={searchlogo}/></label>
               </div>
-              {btnnew ? (
-                <table className='text-[#B4AEAE]'>
+              <table className='text-[#B4AEAE]'>
                 <thead>
                   <tr>
                     <th className='border-[1px] border-solid border-[#8d9094] w-[5%]'>#</th>
-                    <th className='border-[1px] border-solid border-[#8d9094] w-[15%]'>New Title</th>
+                    <th className='border-[1px] border-solid border-[#8d9094] w-[15%]'>Product Name</th>
                     <th className='border-[1px] border-solid border-[#8d9094] w-[20%]'>Image</th>
-                    <th className='border-[1px] border-solid border-[#8d9094] w-[35%]'>Content</th>
-                    <th className='border-[1px] border-solid border-[#8d9094] w-[10%]'>Date</th>
+                    <th className='border-[1px] border-solid border-[#8d9094] w-[45%]'>Desc</th>
                     <th className='border-[1px] border-solid border-[#8d9094] w-[15%]'>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {dataN.map((item, i)=>{
+                  {data.map((item, i)=>{
                     return(
                       <tr>
                         <td className='text-center border-[1px] border-solid border-[#8d9094]'>{i+1}</td>
-                        <td className='text-center border-[1px] border-solid border-[#8d9094]'>{item.title}</td>
+                        <td className='text-center border-[1px] border-solid border-[#8d9094]'>{item.name}</td>
                         <td className='border-[1px] border-solid border-[#8d9094]'><img src={item.img}/></td>
-                        <td className='border-[1px] border-solid border-[#8d9094]'>{item.content}</td>
-                        <td className='border-[1px] border-solid border-[#8d9094]'>{item.date}</td>
-                        <td className='border-[1px] border-solid border-[#8d9094] text-center'>
-                          <button onClick={() => remove(item._id)} className='p-3 text-black font-bold bg-red-500 rounded-xl'>Xóa</button>
-                          <button className='p-3 ml-2 text-black font-bold bg-green-300 rounded-xl'>Sửa</button>
-                        </td>
-
+                        <td className='border-[1px] border-solid border-[#8d9094]'>{item.desc}</td>
+                        <td className='border-[1px] border-solid border-[#8d9094]'></td>
                       </tr>
                     )
                   })}
                 </tbody>
-            </table>
-              ):(
-                <table className='text-[#B4AEAE]'>
-                  <thead>
-                    <tr>
-                      <th className='border-[1px] border-solid border-[#8d9094] w-[5%]'>#</th>
-                      <th className='border-[1px] border-solid border-[#8d9094] w-[15%]'>Product Name</th>
-                      <th className='border-[1px] border-solid border-[#8d9094] w-[20%]'>Image</th>
-                      <th className='border-[1px] border-solid border-[#8d9094] w-[45%]'>Desc</th>
-                      <th className='border-[1px] border-solid border-[#8d9094] w-[15%]'>Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {data.map((item, i)=>{
-                      return(
-                        <tr>
-                          <td className='text-center border-[1px] border-solid border-[#8d9094]'>{i+1}</td>
-                          <td className='text-center border-[1px] border-solid border-[#8d9094]'>{item.name}</td>
-                          <td className='border-[1px] border-solid border-[#8d9094]'><img src={item.img}/></td>
-                          <td className='border-[1px] border-solid border-[#8d9094]'>{item.desc}</td>
-                          <td className='border-[1px] border-solid border-[#8d9094]'></td>
-                        </tr>
-                      )
-                    })}
-                  </tbody>
               </table>
-              )}
             </div>
           </div>
         </div>

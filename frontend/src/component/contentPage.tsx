@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import { IProducts } from "../types"
 import { INews } from "../types";
-import React from 'react'
-
 const Content = ({data, dataN}:{data: IProducts[], dataN: INews[]})=>{
     return (
         <div>
@@ -11,7 +9,7 @@ const Content = ({data, dataN}:{data: IProducts[], dataN: INews[]})=>{
                 {data.map((item, i)=>{
                     return(
                        <div key={i} className="w-full xl:h-[300px] h-[150px] md:h-[200px] transform hover:scale-120">
-                            <Link to={`/products/${item?._id}`}>
+                            <Link to={`/products/${item?.id}`}>
                             <div className="parent h-[150px] md:h-[200px] xl:h-[250px] 2xl:h-[300px]">
                                 <img className="child" src={item?.img} alt="" /> 
                             </div>
@@ -28,7 +26,7 @@ const Content = ({data, dataN}:{data: IProducts[], dataN: INews[]})=>{
                 {dataN.map((item, i)=>{
                     return(
                        <div key={i}>
-                            <Link className="w-full xl:h-[250px] h-[330px] grid xl:grid-cols-2 grid-rows-2 gap-x-[90px] gap-y-[10px]" to={`/products/${item?._id}`}>
+                            <Link className="w-full xl:h-[250px] h-[330px] grid xl:grid-cols-2 grid-rows-2 gap-x-[90px] gap-y-[10px]" to={`/products/${item?.id}`}>
                             <div className="w-full h-[300px] 2xl:w-[400px] 2xl:h-[200px]">
                                 <img className="w-full h-[200px]" src={item?.img} alt="" /> 
                             </div>
