@@ -29,7 +29,7 @@ const Header = () => {
             <img onClick={()=>{setNavBar(!navBar)}} className='w-full hover:cursor-pointer' src={menu} alt="" />
           </div>
           <ul id='navmobile' className={navBar ? 'z-[2] block absolute top-[0px] right-[0px] bg-[#007bff] w-full h-[400px] text-center xl:hidden' : 'hidden'}>
-            <li className="xl:px-6 2xl:px-8v first-letter:cursor-pointer hover:bg-[white]"><a href="/about"></a>About OPM</li>
+            <li className="xl:px-6 2xl:px-8v first-letter:cursor-pointer hover:bg-[white]"><a href="/about">About OPM</a></li>
             <li className="xl:px-6 2xl:px-8v first-letter:cursor-pointer hover:bg-[white]"><a href=""></a>Product</li>
             <li className="xl:px-6 2xl:px-8v first-letter:cursor-pointer hover:bg-[white]"><a href=""></a>Project</li>
             <li className="xl:px-6 2xl:px-8v first-letter:cursor-pointer hover:bg-[white]"><a href=""></a>Invester Relation</li>

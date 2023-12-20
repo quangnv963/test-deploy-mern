@@ -8,8 +8,8 @@ const Footer = () => {
                         <img className="w-full" src={logo} alt="" />
                     </div>
                     <div className="xl:px-[40px] px-[5px] md:px-[16px]">
-                        <p>Road D1, PhoHien Industrial Park., Tienlu Dist, Hungyen City, Vietnam </p>
-                        <p>+843-3-631-6963</p>
+                        <p>No. 211, Wenhua 2nd Rd., Guishan Dist., Taoyuan City 333, Taiwan </p>
+                        <p>+886-3-327-23453</p>
                     </div>
                 </div>
                 <div className="flex justify-center">
