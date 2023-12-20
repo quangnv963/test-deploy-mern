@@ -28,14 +28,14 @@ const Header = () => {
           <div className="w-[50px] block xl:hidden">
             <img onClick={()=>{setNavBar(!navBar)}} className='w-full hover:cursor-pointer' src={menu} alt="" />
           </div>
-          <ul id='navmobile' className={navBar ? 'z-[2] block absolute top-[0px] right-[0px] bg-[#007bff] w-full h-[400px] text-center xl:hidden' : 'hidden'}>
-            <li className="xl:px-6 2xl:px-8v first-letter:cursor-pointer hover:bg-[white]"><a href="/about">About OPM</a></li>
-            <li className="xl:px-6 2xl:px-8v first-letter:cursor-pointer hover:bg-[white]"><a href=""></a>Product</li>
-            <li className="xl:px-6 2xl:px-8v first-letter:cursor-pointer hover:bg-[white]"><a href=""></a>Project</li>
-            <li className="xl:px-6 2xl:px-8v first-letter:cursor-pointer hover:bg-[white]"><a href=""></a>Invester Relation</li>
-            <li className="xl:px-6 2xl:px-8v first-letter:cursor-pointer hover:bg-[white]"><a href=""></a>Join US</li>
-            <li className="xl:px-6 2xl:px-8v first-letter:cursor-pointer hover:bg-[white]"><a href=""></a>Contact</li>
-            <li className="xl:px-6 2xl:px-8v first-letter:cursor-pointer hover:bg-[white]"><a href=""></a>Language</li>
+          <ul id='navmobile' className={navBar ? 'z-[2] block absolute text-[25px] md:text-[30px] lg:text-[35px] top-[0px] right-[0px] bg-[#007bff] w-full h-screen text-center xl:hidden' : 'hidden'}>
+            <li className="p-6 lg:p-4 2xl:px-8v first-letter:cursor-pointer hover:bg-[white]"><a href="/about">About OPM</a></li>
+            <li className="p-6 lg:p-4 2xl:px-8v first-letter:cursor-pointer hover:bg-[white]"><a href=""></a>Product</li>
+            <li className="p-6 lg:p-4 2xl:px-8v first-letter:cursor-pointer hover:bg-[white]"><a href=""></a>Project</li>
+            <li className="p-6 lg:p-4 2xl:px-8v first-letter:cursor-pointer hover:bg-[white]"><a href=""></a>Invester Relation</li>
+            <li className="p-6 lg:p-4 2xl:px-8v first-letter:cursor-pointer hover:bg-[white]"><a href=""></a>Join US</li>
+            <li className="p-6 lg:p-4 2xl:px-8v first-letter:cursor-pointer hover:bg-[white]"><a href=""></a>Contact</li>
+            <li className="p-6 lg:p-4 2xl:px-8v first-letter:cursor-pointer hover:bg-[white]"><a href=""></a>Language</li>
             <img onClick={()=>{setNavBar(false)}} className="absolute hover:cursor-pointer top-[1px] right-[1px]" src={close} alt="" />       
           </ul>
           <ul className="hidden xl:flex  text-[#4A4A4A] font-sans xl:text-[16px] 2xl:text-[24px]">

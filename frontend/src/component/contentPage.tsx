@@ -28,9 +28,9 @@ const Content = ({data, dataN}:{data: IProducts[], dataN: INews[]})=>{
                        <div key={i}>
                             <Link className="w-full xl:h-[250px] h-[330px] grid xl:grid-cols-2 grid-rows-2 gap-x-[90px] gap-y-[10px]" to={`/products/${item?.id}`}>
                             <div className="w-full h-[300px] 2xl:w-[400px] 2xl:h-[200px]">
-                                <img className="w-full h-[200px]" src={item?.img} alt="" /> 
+                                <img className="w-full h-[200px]" src={item?.img} alt="" />
                             </div>
-                            <div className="my-auto">
+                            <div className="my-auto mx-9">
                                 <p className="text-[#007bff] font-oswald text-[16px] md:text-[17px] xl:text-[20px] 2xl:text-[24px] py-2">{item?.date}</p>
                                 <p className="text-[#726e73] font-oswald text-[16px] md:text-[17px] xl:text-[20px] 2xl:text-[24px] w-[300px] xl:w-[200px] 2xl:w-[300px]">{item?.title}</p>
                             </div>
